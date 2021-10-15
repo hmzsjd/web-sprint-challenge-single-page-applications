@@ -1,13 +1,109 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+    font-size: 62.5%;
+
+}
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    max-width:100%;
+    border: 1px solid grey;
+    
+}
+body {
+	line-height: 1.5;
+  font-size: 1.6rem;
+  font-family: monospace;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 2%;
+}
+
+h1 {
+  font-size: 3rem;
+  color: crimson;
+}
+
+a {
+  color: crimson;
+  text-decoration: none;
+}
+
+.mainImage {
+  background-image: url("https://images.unsplash.com/photo-1579751626657-72bc17010498?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1738&q=80");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  height: 50vh;
+
+}
+
+.optionImg {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+}
+
+.choicesGallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.option {
+  color: crimson;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+  margin: 1%;
 }
