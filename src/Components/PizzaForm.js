@@ -186,9 +186,9 @@ const PizzaForm = (props) => {
 
 
         
-        <Link to="/confirmation">
+        
         <button id='order-button'>Order Now</button>
-        </Link>
+        
     </form>
         
 
