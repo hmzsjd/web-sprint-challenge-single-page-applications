@@ -56,7 +56,7 @@ const App = () => {
     validate(name, value);
     setFormValues({
       ...formValues,
-      [name]: value // NOT AN ARRAY
+      [name]: value
     })
   }
 
@@ -78,7 +78,7 @@ const App = () => {
  
     console.log(newOrder);
     postNewOrder(newOrder);
-    // 🔥 STEP 8- POST NEW FRIEND USING HELPER
+    
   }
 
 
@@ -93,12 +93,6 @@ const App = () => {
         setFormValues(initialFormValues);
       })
   }
-
-
-
-
-
-
 
 
 
@@ -130,6 +124,10 @@ const App = () => {
         // disabled={disabled}
         errors={formErrors}
         />
+        </Route>
+
+        <Route exact path="/confirmation">
+        <h1>Congrats Pizza On The Way!</h1>
         </Route>
     </div>
       

@@ -41,7 +41,7 @@ const PizzaForm = (props) => {
        
 
         <div>
-          <div id="nameError">{errors.name}</div>
+          <div id="error">{errors.name}</div>
         </div>
     
 
@@ -186,9 +186,9 @@ const PizzaForm = (props) => {
 
 
         
-
+        <Link to="/confirmation">
         <button id='order-button'>Order Now</button>
-
+        </Link>
     </form>
         
 
