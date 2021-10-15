@@ -3,6 +3,21 @@ import { Route, Link } from "react-router-dom";
 
 
 const PizzaForm = (props) => {
+
+    const {
+        values,
+        change,
+        errors,
+        // submit,
+        // disabled,
+      } = props
+
+      const onChange = evt => {
+        const { name, value, checked, type } = evt.target;
+        const valueToUse = type === 'checkbox' ? checked : value;
+        change(name, valueToUse);
+      }
+    
   
     return (
 
@@ -21,21 +36,16 @@ const PizzaForm = (props) => {
         {/* initial disable */}
        
 
-        {/* <div >
-          <div id="fNameError">{errors.first_name}</div>
-          <div id="lNameError">{errors.last_name}</div>
-          <div id="emailError">{errors.email}</div>
-          <div id="passError">{errors.password}</div>
-          <div id="tosError">{errors.agreed}</div>
+        <div>
+          <div id="nameError">{errors.name}</div>
         </div>
-      </div> */}
+    
 
 
         <div className="sizeSelector">
         <h3>Choose Size</h3>
-        {/* value={values.role} name="role" onChange={onChange} */}
         <label>Size
-          <select id="size-dropdown">
+          <select id="size-dropdown" onChange={onChange} value={values.size} name='size'>
               <option value="">-- Choose --</option>
               <option value="Small">Small</option>
               <option value="Medium">Medium</option>
@@ -48,14 +58,14 @@ const PizzaForm = (props) => {
 
         <div className="sauceSelector">
         <h3>Choose Sauce</h3>
-        {/* value={values.role} name="role" onChange={onChange} */}
+ 
         <label>Original Red
           <input
             type="radio"
             name="sauce"
             value="Original Red"
-            // onChange={onChange}
-            // checked={values.civil === "single"}
+            onChange={onChange}
+            checked={values.sauce === "Original Red"}
           />
         </label>
 
@@ -64,8 +74,8 @@ const PizzaForm = (props) => {
             type="radio"
             name="sauce"
             value="Garlic Parmesan"
-            // onChange={onChange}
-            // checked={values.civil === "married"}
+            onChange={onChange}
+            checked={values.sauce === "Garlic Parmesan"}
           />
         </label>
 
@@ -75,8 +85,8 @@ const PizzaForm = (props) => {
             type="radio"
             name="sauce"
             value="BBQ Sauce"
-            // onChange={onChange}
-            // checked={values.civil === "married"}
+            onChange={onChange}
+            checked={values.sauce === "BBQ Sauce"}
           />
         </label>
 
@@ -85,8 +95,8 @@ const PizzaForm = (props) => {
             type="radio"
             name="sauce"
             value="Spinach Alfredo"
-            // onChange={onChange}
-            // checked={values.civil === "married"}
+            onChange={onChange}
+            checked={values.sauce === "Spinach Alfredo"}
           />
         </label>
         </div>
@@ -97,95 +107,41 @@ const PizzaForm = (props) => {
         <label>Pepperoni
           <input
             type="checkbox"
-            name="Pepperoni"
-            // onChange={onChange}
-            // checked={values.hiking}
+            name="pepperoni"
+            onChange={onChange}
+            checked={values.pepperoni}
           />
         </label>
 
         <label>Sausage
           <input
             type="checkbox"
-            name="Sausage"
-            // onChange={onChange}
-            // checked={values.hiking}
+            name="sausage"
+            onChange={onChange}
+            checked={values.sausage}
           />
         </label>
 
-        <label>Canadian Bacon
-          <input
-            type="checkbox"
-            name="Canadian Bacon"
-            // onChange={onChange}
-            // checked={values.hiking}
-          />
-        </label>
-
-        <label>Italian Bacon
-          <input
-            type="checkbox"
-            name="Italian Bacon"
-            // onChange={onChange}
-            // checked={values.hiking}
-          />
-        </label>
-
-        <label>Grilled Chicken
-          <input
-            type="checkbox"
-            name="Grilled Chicken"
-            // onChange={onChange}
-            // checked={values.hiking}
-          />
-        </label>
         
         <label>Onions
           <input
             type="checkbox"
-            name="Onions"
-            // onChange={onChange}
-            // checked={values.hiking}
+            name="onions"
+            onChange={onChange}
+            checked={values.onions}
           />
         </label>
 
         <label>Green Pepper
           <input
             type="checkbox"
-            name="Green Pepper"
-            // onChange={onChange}
-            // checked={values.hiking}
+            name="greenPepper"
+            onChange={onChange}
+            checked={values.greenPepper}
           />
         </label>
 
-        <label>Roasted Red Pepper
-          <input
-            type="checkbox"
-            name="Roasted Red Peppers"
-            // onChange={onChange}
-            // checked={values.hiking}
-          />
-        </label>
-
-        <label>Diced Tomato
-          <input
-            type="checkbox"
-            name="Diced Tomato"
-            // onChange={onChange}
-            // checked={values.hiking}
-          />
-        </label>
-
-        <label>Roasted Garlic
-          <input
-            type="checkbox"
-            name="Roasted Garlic"
-            // onChange={onChange}
-            // checked={values.hiking}
-          />
-        </label>
         
-
-       
        
         </div>
 
@@ -193,12 +149,12 @@ const PizzaForm = (props) => {
 
 
 
-        <div class="textSection">
+        <div className="textSection">
      
         <label>Special Instructions&nbsp;
           <input
-            // value={values.first_name}
-            // onChange={onChange}
+            value={values.instructions}
+            onChange={onChange}
             name='instructions'
             type='text'
             id="special-text"
@@ -208,8 +164,8 @@ const PizzaForm = (props) => {
 
         <label>Name:&nbsp;
           <input
-            // value={values.first_name}
-            // onChange={onChange}
+            value={values.name}
+            onChange={onChange}
             name='name'
             type='text'
             id="name-input"
