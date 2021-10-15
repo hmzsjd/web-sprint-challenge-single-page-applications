@@ -1,6 +1,7 @@
 import React from "react";
 import HomePage from './Components/HomePage';
 import { Route, Link } from 'react-router-dom';
+import PizzaForm from './Components/PizzaForm';
 
 
 
@@ -25,6 +26,10 @@ const App = () => {
 
         <Route exact path="/">
         <HomePage/>
+        </Route>
+
+        <Route exact path="/pizza">
+        <PizzaForm />
         </Route>
     </div>
       

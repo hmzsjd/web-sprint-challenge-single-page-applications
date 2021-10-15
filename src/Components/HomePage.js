@@ -10,7 +10,10 @@ const Header = (props) => {
         
         <div className="mainImage">
         <h1>Your favorite food, delivered while coding.</h1>
+
+        <Link to="/pizza">
         <button id="order-pizza">Pizza?</button>    
+        </Link>
         </div>
         
 
