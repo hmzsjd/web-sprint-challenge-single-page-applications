@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom';
 import PizzaForm from './Components/PizzaForm';
 import schema from './validation/formSchema';
 import * as yup from 'yup';
+import axios from 'axios';
 
 
 
@@ -61,6 +62,40 @@ const App = () => {
 
 
 
+  const formSubmit = () => {
+    const newOrder = {
+      name: formValues.name.trim(),
+      size: formValues.size.trim(),
+      sauce: formValues.sauce.trim(),
+      pepperoni: formValues.pepperoni,
+      sausage: formValues.sausage,
+      onions: formValues.onions,
+      greenPepper: formValues.greenPepper,
+      special: formValues.instructions.trim(),
+  
+      
+    }
+ 
+    console.log(newOrder);
+    postNewOrder(newOrder);
+    // 🔥 STEP 8- POST NEW FRIEND USING HELPER
+  }
+
+
+  const postNewOrder = newOrder => {
+
+    axios.post('https://reqres.in/api/orders', newOrder)
+      .then(res => {
+        setOrders([res.data, ...orders]);
+      }).catch(err => {
+        console.error(err);
+      }).finally(() => {
+        setFormValues(initialFormValues);
+      })
+  }
+
+
+
 
 
 
@@ -91,7 +126,7 @@ const App = () => {
         <PizzaForm 
         values={formValues}
         change={inputChange}
-        // submit={formSubmit}
+        submit={formSubmit}
         // disabled={disabled}
         errors={formErrors}
         />

@@ -8,7 +8,7 @@ const PizzaForm = (props) => {
         values,
         change,
         errors,
-        // submit,
+        submit,
         // disabled,
       } = props
 
@@ -17,7 +17,11 @@ const PizzaForm = (props) => {
         const valueToUse = type === 'checkbox' ? checked : value;
         change(name, valueToUse);
       }
-    
+      
+      const onSubmit = evt => {
+        evt.preventDefault()
+        submit()
+      }
   
     return (
 
@@ -27,7 +31,7 @@ const PizzaForm = (props) => {
 
         <img className="byoP" src="https://images.unsplash.com/photo-1542866789-bb9c9d086a5d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80" alt="pizza"></img> 
         
-        <form id="pizza-form">
+        <form id="pizza-form" onSubmit={onSubmit}>
 
         {/* onSubmit={onSubmit} */}
 
